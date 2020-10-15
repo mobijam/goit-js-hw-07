@@ -1,3 +1,26 @@
+const ingredients = [
+  'Картошка',
+  'Грибы',
+  'Чеснок',
+  'Помидоры',
+  'Зелень',
+  'Приправы',
+];
+
+const makeList = (array) => {
+  return array.map(item => {
+    const newItem = document.createElement('li');
+    newItem.textContent = item;
+    return newItem;
+  });
+};
+
+const result = makeList(ingredients);
+
+const list = document.querySelector('#ingredients');
+
+list.append(...result);
+
 /*
 В HTML есть пустой список ul#ingredients.
 
