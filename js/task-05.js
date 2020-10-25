@@ -3,12 +3,16 @@ const ref = {
   nameLabel: document.querySelector("#name-output"),
 };
 
-ref.input.addEventListener("input",
-  () => (ref.nameLabel.textContent =
-    ref.input.value.length > 0
-      ? ref.input.value
-      : "незнакомец"));
-
+const changeOutputTextContent = function() {
+      if (ref.nameLabel.textContent =
+      ref.input.value.length > 0) {
+       ref.nameLabel.textContent = ref.input.value
+    } else {
+      ref.nameLabel.textContent = "незнакомец"
+    }
+}
+  
+ref.input.addEventListener("input", changeOutputTextContent);
 
 /*
 Напиши скрипт который, при наборе текста в инпуте input#name-input (событие input), подставляет его текущее значение в span#name-output. Если инпут пустой, в спане должна отображаться строка 'незнакомец'.
