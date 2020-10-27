@@ -1,13 +1,16 @@
 const validationInput =  document.querySelector("#validation-input");
 
-const inputFocusChange = () =>
-  validationInput.value.length < validationInput.dataset.length ||
-    validationInput.value.length > validationInput.dataset.length
-    ? validationInput.classList.remove("valid") & validationInput.classList.add("invalid")
-    : validationInput.classList.remove("invalid") & validationInput.classList.add("valid");
-
-
-validationInput.addEventListener("blur", inputFocusChange);
+const inputFocusChange = function (inputText) {
+  if (this.value.length < this.dataset.length ||
+    this.value.length > this.dataset.length) {
+    this.classList.remove("valid");
+    this.classList.add("invalid");
+  } else {
+    this.classList.remove("invalid");
+    this.classList.add("valid");
+    }
+}
+  validationInput.addEventListener("blur", inputFocusChange);
 
 /*
 Напиши скрипт, который бы при потере фокуса на инпуте, проверял его содержимое на правильное количество символов.
